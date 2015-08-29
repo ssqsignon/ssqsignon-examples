@@ -9,3 +9,7 @@ aspnet-angularjs/server/Client/config.js
 aspnet-angularjs/sso-slave-server/SSQSignon.config
 aspnet-angularjs/sso-slave-server/Client/config.js
 aspnet-angularjs/packages/
+nodejs-angularjs/client/config.js
+nodejs-angularjs/sso-slave/client/config.js
+nodejs-angularjs/sso-slave/config.js
+nodejs-angularjs/config.js

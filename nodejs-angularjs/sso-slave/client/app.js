@@ -1,7 +1,7 @@
-angular.module('tinyUsersExampleSSOSlaveApp', [ 'ui.bootstrap', 'angular-ssqsignon', 'ngResource' ])
-    .config(function(authenticatorProvider, $httpProvider, $locationProvider) {
+angular.module('ssqSignonExampleSSOSlaveApp', [ 'ui.bootstrap', 'angular-ssqsignon', 'ngResource', 'ssqSignonExampleConfig' ])
+    .config(function(authenticatorProvider, $httpProvider, $locationProvider, SSQSIGNON_MODULE_NAME, SSQSIGNON_CLIENT_ID) {
         $locationProvider.html5Mode(true);
-        authenticatorProvider.init('cat-and-dog', 29, undefined, 'https://tinyusers.azurewebsites.net');
+        authenticatorProvider.init(SSQSIGNON_MODULE_NAME, SSQSIGNON_CLIENT_ID, undefined, 'https://tinyusers.azurewebsites.net');
         $httpProvider.interceptors.push('appendAccessToken');
         //$httpProvider.interceptors.push('refreshAccessToken');
     })

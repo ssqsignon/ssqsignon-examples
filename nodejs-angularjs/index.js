@@ -4,10 +4,11 @@ var express = require('express'),
     passport = require('passport'),
     SsqSignonStrategy = require('passport-ssqsignon').Strategy,
     port = 9901,
+    ssqSignonConfig = require('./config.js').ssqSignon,
     app = express();
 
 
-passport.use(new SsqSignonStrategy('cat-and-dog', scopeAsObject));
+passport.use(new SsqSignonStrategy(ssqSignonConfig.moduleName, scopeAsObject));
 
 app.get('/cat', passport.authenticate('ssqsignon', { session: false }), function (req, res) {
     if (req.user.scope.cat) {
@@ -27,6 +28,7 @@ app.get('/dog', passport.authenticate('ssqsignon', { session: false }), function
 
 
 app.use('/app.js', serveStatic(path.join(__dirname, 'client', 'app.js')));
+app.use('/config.js', serveStatic(path.join(__dirname, 'client', 'config.js')));
 app.use('/cat.jpg', serveStatic(path.join(__dirname, 'client', 'cat.jpg')));
 app.use('/dog.jpg', serveStatic(path.join(__dirname, 'client', 'dog.jpg')));
 

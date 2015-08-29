@@ -6,9 +6,10 @@ var express = require('express'),
     SsqSignonStrategy = require('passport-ssqsignon').Strategy,
     https = require('https'),
     port = 9902,
+    ssqSignonConfig = require('./config.js').ssqSignon,
     app = express();
 
-passport.use(new SsqSignonStrategy('cat-and-dog', scopeAsObject));
+passport.use(new SsqSignonStrategy(ssqSignonConfig.moduleName, scopeAsObject));
 
 app.use(bodyParser.json());
 
@@ -32,6 +33,7 @@ app.get('/hamster', passport.authenticate('ssqsignon', { session: false }), func
 
 
 app.use('/app.js', serveStatic(path.join(__dirname, 'client', 'app.js')));
+app.use('/config.js', serveStatic(path.join(__dirname, 'client', 'config.js')));
 app.use('/hamster.jpg', serveStatic(path.join(__dirname, 'client', 'hamster.jpg')));
 
 app.get('*', function (req, res) {
@@ -43,9 +45,9 @@ function scopeAsObject(scopeStr) {
 }
 
 function consumeAuthorizationCode(code, done) {
-    var module = 'cat-and-dog',
-        clientId = 29,
-        clientSecret = 'testtest',
+    var module = ssqSignonConfig.moduleName,
+        clientId = ssqSignonConfig.clientId,
+        clientSecret = ssqSignonConfig.clientSecret,
         redirectUri = 'http://localhost:9902',
         data = JSON.stringify({ grant_type: 'authorization_code', code: code, redirect_uri: redirectUri, client_id: clientId });
     var req = https.request({
