@@ -1,2 +1,11 @@
 .idea/
 nodejs-angularjs/node_modules/
+aspnet-angularjs/server/obj/
+aspnet-angularjs/server/bin/
+aspnet-angularjs/sso-slave-server/obj/
+aspnet-angularjs/sso-slave-server/bin/
+aspnet-angularjs/server/SSQSignon.config
+aspnet-angularjs/server/Client/config.js
+aspnet-angularjs/sso-slave-server/SSQSignon.config
+aspnet-angularjs/sso-slave-server/Client/config.js
+aspnet-angularjs/packages/
