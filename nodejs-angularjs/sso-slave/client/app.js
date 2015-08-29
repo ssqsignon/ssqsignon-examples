@@ -3,7 +3,7 @@ angular.module('ssqSignonExampleSSOSlaveApp', [ 'ui.bootstrap', 'angular-ssqsign
         $locationProvider.html5Mode(true);
         authenticatorProvider.init(SSQSIGNON_MODULE_NAME, SSQSIGNON_CLIENT_ID, undefined, 'https://tinyusers.azurewebsites.net');
         $httpProvider.interceptors.push('appendAccessToken');
-        //$httpProvider.interceptors.push('refreshAccessToken');
+        $httpProvider.interceptors.push('refreshAccessToken');
     })
     .controller('landingCtrl', function($scope, $q, $resource, $http, $modal, $location, authenticator) {
 
