@@ -1,7 +1,7 @@
 angular.module('ssqSignonExampleSSOSlaveApp', ['ui.bootstrap', 'angular-ssqsignon', 'ngResource', 'ssqSignonExampleConfig'])
     .config(function (authenticatorProvider, $httpProvider, $locationProvider, SSQSIGNON_MODULE_NAME, SSQSIGNON_CLIENT_ID) {
         $locationProvider.html5Mode(true);
-        authenticatorProvider.init(SSQSIGNON_MODULE_NAME, SSQSIGNON_CLIENT_ID);
+        authenticatorProvider.init(SSQSIGNON_MODULE_NAME, SSQSIGNON_CLIENT_ID, '/auth');
         $httpProvider.interceptors.push('appendAccessToken');
         $httpProvider.interceptors.push('refreshAccessToken');
     })
@@ -39,17 +39,12 @@ angular.module('ssqSignonExampleSSOSlaveApp', ['ui.bootstrap', 'angular-ssqsigno
 
         function loginWithMaster() {
             if ($location.search().code && $location.search().state) {
-                return $q(function (resolve, reject) {
-                    $http.post('/swapcode', { code: $location.search().code, state: $location.search().state })
-                        .success(function (access) {
+                return authenticator.ssoSlave.consumeAuthorizationCode($location.search().code, 'http://localhost:62326/client')
+                        .then(function (me) {
                             $location.search('code', undefined);
                             $location.search('state', undefined);
-                            resolve(authenticator.ssoSlave.useTokens(access));
-                        })
-                        .error(function (data, status) {
-                            reject({ data: data, status: status });
+                            return me;
                         });
-                });
             } else if ($location.search().error) {
                 $location.search('error', undefined);
                 $scope.accessDenied = true;

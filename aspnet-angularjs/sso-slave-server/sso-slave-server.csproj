@@ -63,6 +63,9 @@
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
     </Reference>
+    <Reference Include="SSQSignon.AuthProxy">
+      <HintPath>..\packages\SSQSignon.AuthProxy.1.0.0.0\lib\net45\SSQSignon.AuthProxy.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -105,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\SwapCodeController.cs" />
     <Compile Include="Controllers\HamsterController.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
