@@ -13,3 +13,5 @@ nodejs-angularjs/client/config.js
 nodejs-angularjs/sso-slave/client/config.js
 nodejs-angularjs/sso-slave/config.js
 nodejs-angularjs/config.js
+aspnet-angularjs/http-users-endpoint/obj/
+aspnet-angularjs/http-users-endpoint/bin/http-users-endpoint.dll.config
