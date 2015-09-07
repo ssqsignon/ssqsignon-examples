@@ -59,7 +59,6 @@ angular.module('ssqSignonExampleApp', ['ui.bootstrap', 'angular-ssqsignon', 'ngR
 
         function askAboutRedirect() {
             return $modal.open({
-                size: 'sm',
                 templateUrl: 'redirectModal.html',
                 backdrop: 'static',
                 controller: function($scope, $modalInstance, $location) {

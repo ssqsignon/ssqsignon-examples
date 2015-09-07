@@ -14,7 +14,9 @@ angular.module('ssqSignonExampleSSOSlaveApp', ['ui.bootstrap', 'angular-ssqsigno
                 .then(init);
         };
 
-        var hamster = $resource('/hamster', undefined, { get: 'GET' });
+        var hamster = $resource('/hamster', undefined, { get: 'GET' }),
+            masterUrl = 'http://localhost:59186/client',
+            myUrl = 'http://localhost:62326/client';
 
         init();
 
@@ -39,7 +41,7 @@ angular.module('ssqSignonExampleSSOSlaveApp', ['ui.bootstrap', 'angular-ssqsigno
 
         function loginWithMaster() {
             if ($location.search().code && $location.search().state) {
-                return authenticator.ssoSlave.consumeAuthorizationCode($location.search().code, 'http://localhost:62326/client')
+                return authenticator.ssoSlave.consumeAuthorizationCode($location.search().code, myUrl)
                         .then(function (me) {
                             $location.search('code', undefined);
                             $location.search('state', undefined);
@@ -50,7 +52,7 @@ angular.module('ssqSignonExampleSSOSlaveApp', ['ui.bootstrap', 'angular-ssqsigno
                 $scope.accessDenied = true;
                 return $q.when('access-denied');
             } else {
-                var uri = authenticator.ssoSlave.loginWithMaster('http://localhost:59186/client', 'hamster', 'xyz', 'http://localhost:62326/client');
+                var uri = authenticator.ssoSlave.loginWithMaster(masterUrl, 'hamster', 'xyz', myUrl);
                 return $q.when('redirecting');
             }
         }
