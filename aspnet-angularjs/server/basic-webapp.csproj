@@ -52,9 +52,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.SSQSignon, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Owin.Security.SSQSignon, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Owin.Security.SSQSignon.1.0.0.4\lib\net45\Microsoft.Owin.Security.SSQSignon.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Security.SSQSignon.1.0.0.5\lib\net45\Microsoft.Owin.Security.SSQSignon.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

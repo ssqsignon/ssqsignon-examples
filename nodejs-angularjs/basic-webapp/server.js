@@ -7,7 +7,6 @@ var express = require('express'),
     ssqSignonConfig = require('./config.js').ssqSignon,
     app = express();
 
-
 passport.use(new SsqSignonStrategy(ssqSignonConfig.moduleName, scopeAsObject));
 
 app.get('/cat', passport.authenticate('ssqsignon', { session: false }), function (req, res) {

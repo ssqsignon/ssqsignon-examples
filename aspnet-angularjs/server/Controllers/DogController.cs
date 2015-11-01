@@ -12,7 +12,7 @@ namespace server.Controllers
     {
         public dynamic Get()
         {
-            return Json(new { message = "Hello, I am the dog!" });
+            return Json(new { message = string.Format("Hello {0}, I am the dog!", User.Identity.Name) });
         }
     }
 }
