@@ -14,30 +14,33 @@ angular.module('ssqSignonExampleSSOSlaveApp', [ 'ui.bootstrap', 'angular-ssqsign
                 .then(init);
         };
 
+        $scope.startSSO = function() {
+            authenticator.ssoSlave.loginWithMaster('http://localhost:9901', 'hamster', 'xyz', 'http://localhost:9902');
+        };
+
         var hamster = $resource('/hamster', undefined, { get: 'GET' });
 
         init();
 
         function init() {
-            return authenticator.whoAmI()
-                .catch(function(err) {
-                    if (err == 'ask-user') {
-                        return loginWithMaster();
-                    } else {
-                        return $q.reject(err);
-                    }
-                })
+            return (safeRedirected() ? finishSSO() : authenticator.whoAmI())
                 .then(function(me) {
-                    if (me != 'redirecting' || me != 'access-denied') {
+                    if (me != 'access-denied') {
                         $scope.userId = me.userId;
                         $scope.permissions = me.scope;
                         $scope.loggedIn = true;
                         getProtectedResources();
                     }
+                }, function() {
+                    $scope.loggedIn = false;
                 });
         }
 
-        function loginWithMaster() {
+        function safeRedirected() {
+            return (($location.search().code && $location.search().state) || $location.search().error);
+        }
+
+        function finishSSO() {
             if ($location.search().code && $location.search().state) {
                 return authenticator.ssoSlave.consumeAuthorizationCode($location.search().code, 'http://localhost:9902')
                     .then(function(me) {
@@ -49,9 +52,6 @@ angular.module('ssqSignonExampleSSOSlaveApp', [ 'ui.bootstrap', 'angular-ssqsign
                 $location.search('error', undefined);
                 $scope.accessDenied = true;
                 return $q.when('access-denied');
-            } else {
-                var uri = authenticator.ssoSlave.loginWithMaster('http://localhost:9901', 'hamster', 'xyz', 'http://localhost:9902');
-                return $q.when('redirecting');
             }
         }
 

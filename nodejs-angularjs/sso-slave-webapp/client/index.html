@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <base href="/">
-    <title>Tinyusers example sso slave app</title>
+    <title>SSQ signon example sso slave app</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
@@ -18,8 +18,9 @@
 <body ng-controller="landingCtrl">
     <div class="container">
         <div class="page-header">
-            <h1>Tinyusers example sso slave app</h1>
-            <span ng-show="loggedIn" ng-hide="accessDenied">Welcome <strong>{{ userId }}</strong>! <button class="btn btn-default btn-sm" ng-click="logout()">Logout</button></span>
+            <h1>SSQ signon example sso slave app</h1>
+            <div class="btn btn-primary" ng-click="startSSO()" ng-show="loggedIn == false">Login with <em>SSQ signon example app</em></div>
+            <span ng-if="loggedIn" ng-hide="accessDenied">Welcome <strong>{{ userId }}</strong>! <button class="btn btn-default btn-sm" ng-click="logout()">Logout</button></span>
         </div>
         <div class="alert alert-warning text-center" ng-if="accessDenied">
             You have denied access on the login website. Reload the page to try again.

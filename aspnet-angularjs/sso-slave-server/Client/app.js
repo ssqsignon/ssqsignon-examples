@@ -1,5 +1,5 @@
-angular.module('ssqSignonExampleSSOSlaveApp', ['ui.bootstrap', 'angular-ssqsignon', 'ngResource', 'ssqSignonExampleConfig'])
-    .config(function (authenticatorProvider, $httpProvider, $locationProvider, SSQSIGNON_MODULE_NAME, SSQSIGNON_CLIENT_ID) {
+angular.module('ssqSignonExampleSSOSlaveApp', [ 'ui.bootstrap', 'angular-ssqsignon', 'ngResource', 'ssqSignonExampleConfig' ])
+    .config(function(authenticatorProvider, $httpProvider, $locationProvider, SSQSIGNON_MODULE_NAME, SSQSIGNON_CLIENT_ID) {
         $locationProvider.html5Mode(true);
         authenticatorProvider.init(SSQSIGNON_MODULE_NAME, SSQSIGNON_CLIENT_ID, '/auth');
         $httpProvider.interceptors.push('appendAccessToken');
@@ -14,46 +14,44 @@ angular.module('ssqSignonExampleSSOSlaveApp', ['ui.bootstrap', 'angular-ssqsigno
                 .then(init);
         };
 
-        var hamster = $resource('/hamster', undefined, { get: 'GET' }),
-            masterUrl = 'http://localhost:59186/client',
-            myUrl = 'http://localhost:62326/client';
+        $scope.startSSO = function() {
+            authenticator.ssoSlave.loginWithMaster('http://localhost:59186/client', 'hamster', 'xyz', 'http://localhost:62326/client');
+        };
+
+        var hamster = $resource('/hamster', undefined, { get: 'GET' });
 
         init();
 
         function init() {
-            return authenticator.whoAmI()
-                .catch(function(err) {
-                    if (err == 'ask-user') {
-                        return loginWithMaster();
-                    } else {
-                        return $q.reject(err);
-                    }
-                })
+            return (safeRedirected() ? finishSSO() : authenticator.whoAmI())
                 .then(function(me) {
-                    if (me != 'redirecting' || me != 'access-denied') {
+                    if (me != 'access-denied') {
                         $scope.userId = me.userId;
                         $scope.permissions = me.scope;
                         $scope.loggedIn = true;
                         getProtectedResources();
                     }
+                }, function() {
+                    $scope.loggedIn = false;
                 });
         }
 
-        function loginWithMaster() {
+        function safeRedirected() {
+            return (($location.search().code && $location.search().state) || $location.search().error);
+        }
+
+        function finishSSO() {
             if ($location.search().code && $location.search().state) {
-                return authenticator.ssoSlave.consumeAuthorizationCode($location.search().code, myUrl)
-                        .then(function (me) {
-                            $location.search('code', undefined);
-                            $location.search('state', undefined);
-                            return me;
-                        });
+                return authenticator.ssoSlave.consumeAuthorizationCode($location.search().code, 'http://localhost:62326/client')
+                    .then(function(me) {
+                        $location.search('code', undefined);
+                        $location.search('state', undefined);
+                        return me;
+                    });
             } else if ($location.search().error) {
                 $location.search('error', undefined);
                 $scope.accessDenied = true;
                 return $q.when('access-denied');
-            } else {
-                var uri = authenticator.ssoSlave.loginWithMaster(masterUrl, 'hamster', 'xyz', myUrl);
-                return $q.when('redirecting');
             }
         }
 
