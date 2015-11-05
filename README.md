@@ -44,7 +44,7 @@ In the command prompt, navigate to the `/nodejs-angularjs` directory, and run `n
 4.3 Rename the `/nodejs-angularjs/basic-webapp/client/config.example.js` file to `/nodejs-angularjs/basic-webapp/client/config.js`.
 
 4.4 Open the `/nodejs-angularjs/basic-webapp/client/config.js` file and change the `SSQSIGNON_MODULE_NAME` value to the name of the module you've created in step 1.
-Also, change the `SSQSIGNON_CLIENT_ID` value to the *client id* of the client you've created in step 1 (you may
+Also, change the `SSQSIGNON_CLIENT_ID` value to the *client id* of the client you've registered in step 1 (you may
 check this value in your module's *clients* section).
 
 4.6 In the command prompt, navigate to `/nodejs-angularjs/basic-webapp` and run `node server.js`. If all goes well you should see the
@@ -65,12 +65,12 @@ check this value in your module's *clients* section).
 5.3 Rename the `/nodejs-angularjs/sso-slave-webapp/config.example.js` file to `/nodejs-angularjs/sso-slave-webapp/config.js`.
 
 5.4 Open the `/nodejs-angularjs/sso-slave-webapp/config.js` file and change the `moduleName` value to the name of the module you've created in step 1.
-  Also change the `clientId` and `clientSecret` to the *client id* and *client secret* of client you've created in step 5.2.
+  Also change the `clientId` and `clientSecret` to the *client id* and *client secret* of client you've registered in step 5.2.
   
 5.5 Rename the `/nodejs-angularjs/sso-slave-webapp/client/config.example.js` file to `/nodejs-angularjs/sso-slave-webapp/client/config.js`.
 
 5.6 Open the `/nodejs-angularjs/sso-slave-webapp/client/config.js` file and change the `SSQSIGNON_MODULE_NAME` value to the name of the module you've created in step 1.
-Also, change the `SSQSIGNON_CLIENT_ID` value to the *client id* of client you've created in step 5.2.
+Also, change the `SSQSIGNON_CLIENT_ID` value to the *client id* of client you've registered in step 5.2.
 
 5.7 In the command prompt, navigate to `/nodejs-angularjs/sso-slave-webapp` and run `node server.js`. If all goes well you should see the
 `web app listening on port 9902` message.
