@@ -17,3 +17,8 @@ aspnet-angularjs/http-users-endpoint/obj/
 aspnet-angularjs/http-users-endpoint/bin/http-users-endpoint.dll.config
 aspnet-angularjs/server/Properties/PublishProfiles/ssqsignondemobasic.pubxml
 aspnet-angularjs/sso-slave-server/Properties/PublishProfiles/ssqsignondemoslave.pubxml
+nodejs-jquery/node_modules/
+nodejs-jquery/sso-slave-webapp/client/config.js
+nodejs-jquery/basic-webapp/config.js
+nodejs-jquery/sso-slave-webapp/config.js
+nodejs-jquery/basic-webapp/client/config.js

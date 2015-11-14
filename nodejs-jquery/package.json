@@ -1,12 +1,12 @@
 {
-  "name": "ssqsignon-example-nodejs-angularjs",
+  "name": "ssqsignon-example-nodejs-jquery",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Riviera Soltions",
+  "author": "Riviera Solutions",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.13.3",
