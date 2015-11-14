@@ -4,6 +4,7 @@ Example application stacks that use the [SSQ signon](https://www.ssqsignon.com) 
 ## Example stacks include
 
 - A [Node.js](https://nodejs.org) server, [angular.js](https://angularjs.org/) client stack.
+- A [Node.js](https://nodejs.org) server, [jQuery](https://jquery.com/) client stack.
 - An [ASP.Net](http://www.asp.net/) server,  [angular.js](https://angularjs.org/) client stack.
 
 ## Each example stack includes
