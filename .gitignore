@@ -22,3 +22,7 @@ nodejs-jquery/sso-slave-webapp/client/config.js
 nodejs-jquery/basic-webapp/config.js
 nodejs-jquery/sso-slave-webapp/config.js
 nodejs-jquery/basic-webapp/client/config.js
+nodejs-angularjs/basic-webapp/client/config.js
+nodejs-angularjs/basic-webapp/config.js
+nodejs-angularjs/sso-slave-webapp/client/config.js
+nodejs-angularjs/sso-slave-webapp/config.js
