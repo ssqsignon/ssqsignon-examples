@@ -15,7 +15,6 @@ namespace server
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
-            config.Filters.Add(new HostAuthenticationFilter(SSQSignonDefaults.AuthenticationType));
 
             // Web API routes
             config.MapHttpAttributeRoutes();
