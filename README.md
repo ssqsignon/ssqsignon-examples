@@ -43,46 +43,40 @@ In the command prompt, navigate to the `/nodejs-angularjs` directory, and run `n
 
 ### 4. Basic web app
 
-4.1 Rename the `/nodejs-angularjs/basic-webapp/config.example.js` file to `/nodejs-angularjs/basic-webapp/config.js`.
+- In the command prompt, navigate to `/nodejs-angularjs/basic-webapp` and run 
 
-4.2 Open the `/nodejs-angularjs/basic-webapp/config.js` file and change the `moduleName` value to the name of the module you've created in step 1.
+        node server.js [your-module-name] [your-client-id]
+    where `[your-module-name]` is the name of the module you've created in step 1, and `[your-client-id]` is the Id of the client 
+    you've registered in step 1 (you may check this value in your module's *clients* section).
+    If all goes well you should see the `web app listening on port 9901` message.
 
-4.3 Rename the `/nodejs-angularjs/basic-webapp/client/config.example.js` file to `/nodejs-angularjs/basic-webapp/client/config.js`.
-
-4.4 Open the `/nodejs-angularjs/basic-webapp/client/config.js` file and change the `SSQSIGNON_MODULE_NAME` value to the name of the module you've created in step 1.
-Also, change the `SSQSIGNON_CLIENT_ID` value to the *client id* of the client you've registered in step 1 (you may
-check this value in your module's *clients* section).
-
-4.6 In the command prompt, navigate to `/nodejs-angularjs/basic-webapp` and run `node server.js`. If all goes well you should see the
-`web app listening on port 9901` message.
-
-4.7 Open your web browser and navigate to `http://localhost:9901`. You may now login with the dummy user accounts you've created in step 1.
+- Open your web browser and navigate to
+ 
+        http://localhost:9901
+    You may now login with the dummy user accounts you've created in step 1.
     Users that have the `cat` scope will be able to see a picture of a cat after logging in.
     Users that have the `dog` scope will be able to see a picture of a dog after logging in.
     
 ### 5. SSO slave web app
 
-5.1 The *basic web app* that you set up in step 4 should already be up and running. 
+- The *basic web app* that you set up in step 4 should already be up and running. 
 
-5.2 In the [SSQ signon module admin](https://ssqsignon.com/moduleadmin), register a new client with the *authorization
+- In the [SSQ signon module admin](https://ssqsignon.com/moduleadmin), register a new client with the *authorization
  type* set to `Authorization code`, the *use dummy user endpoint* and *generate refresh tokens* checkboxes checked,
  and `http://localhost:9902` added to the list of *valid redirect URIs*. 
 
-5.3 Rename the `/nodejs-angularjs/sso-slave-webapp/config.example.js` file to `/nodejs-angularjs/sso-slave-webapp/config.js`.
+- In the command prompt, navigate to `/nodejs-angularjs/sso-slave-webapp` and run 
 
-5.4 Open the `/nodejs-angularjs/sso-slave-webapp/config.js` file and change the `moduleName` value to the name of the module you've created in step 1.
-  Also change the `clientId` and `clientSecret` to the *client id* and *client secret* of client you've registered in step 5.2.
-  
-5.5 Rename the `/nodejs-angularjs/sso-slave-webapp/client/config.example.js` file to `/nodejs-angularjs/sso-slave-webapp/client/config.js`.
+        node server.js [your-module-name] [your-client-id] [your-client-secret] 
+    where `[your-module-name]` is the name of the module you've created in step 1, and `[you-client-id]` and `[your-client-secret]`
+    are the *client id* and *client secret* of client you've registered in step 5.2.
+    If all goes well you should see the `web app listening on port 9902` message.
 
-5.6 Open the `/nodejs-angularjs/sso-slave-webapp/client/config.js` file and change the `SSQSIGNON_MODULE_NAME` value to the name of the module you've created in step 1.
-Also, change the `SSQSIGNON_CLIENT_ID` value to the *client id* of client you've registered in step 5.2.
+- Open your web browser and navigate to 
 
-5.7 In the command prompt, navigate to `/nodejs-angularjs/sso-slave-webapp` and run `node server.js`. If all goes well you should see the
-`web app listening on port 9902` message.
-
-5.8 Open your web browser and navigate to `http://localhost:9902`. Clicking the *login with SSQ singon example app* button will redirect you to the *basic web app*
-  for Single Sign on. Once logged in, users that have the `hamster` scope will be able to see a picture of a hamster.
+        http://localhost:9902. 
+    Clicking the *login with SSQ singon example app* button will redirect you to the *basic web app*
+    for Single Sign on. Once logged in, users that have the `hamster` scope will be able to see a picture of a hamster.
   
 ### 6. The http users endpoint
 
