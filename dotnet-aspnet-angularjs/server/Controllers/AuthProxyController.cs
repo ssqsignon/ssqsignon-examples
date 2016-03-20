@@ -14,7 +14,7 @@ namespace server.Controllers
     public class AuthProxyController : SSQsignon.ProxyController
     {
         public AuthProxyController()
-            :base(ConfigurationManager.AppSettings["SSQSignonModuleName"], ConfigurationManager.AppSettings["SSQSignonClientId"], null)
+            :base(ConfigurationManager.AppSettings["SSQSignonServerName"], ConfigurationManager.AppSettings["SSQSignonAppId"], null)
         {
         }
     }
