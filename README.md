@@ -14,11 +14,11 @@ Example application stacks that use the [SSQ signon](https://www.ssqsignon.com) 
 - An example *http users endpoint* through which *SSQ signon* can communicate with your user database.
 
 ## Quick links
-- [Node.js - Express.js - Angular.js setup](https://github.com/ssqsignon/ssqsignon-examples/nodejs-express-angularjs)
-- [Node.js - Express.js - jQuery setup](https://github.com/ssqsignon/ssqsignon-examples/nodejs-express-jquery)
-- [.Net - ASP.Net Web API - Angular.js setup](https://github.com/ssqsignon/ssqsignon-examples/dotnet-aspnet-angularjs)
-- [.Net - Nancy Fx - Angular.js setup](https://github.com/ssqsignon/ssqsignon-examples/dotnet-nancyfx-angularjs)
-- [.Net - Katana - Angular.js setup](https://github.com/ssqsignon/ssqsignon-examples/dotnet-katana-angularjs)
+- [Node.js - Express.js - Angular.js setup](https://github.com/ssqsignon/ssqsignon-examples/tree/master/nodejs-express-angularjs)
+- [Node.js - Express.js - jQuery setup](https://github.com/ssqsignon/ssqsignon-examples/tree/master/nodejs-express-jquery)
+- [.Net - ASP.Net Web API - Angular.js setup](https://github.com/ssqsignon/ssqsignon-examples/tree/master/dotnet-aspnet-angularjs)
+- [.Net - Nancy Fx - Angular.js setup](https://github.com/ssqsignon/ssqsignon-examples/tree/master/dotnet-nancyfx-angularjs)
+- [.Net - Katana - Angular.js setup](https://github.com/ssqsignon/ssqsignon-examples/tree/master/dotnet-katana-angularjs)
 
 ## Developed using:
 
