@@ -38,7 +38,7 @@ namespace ExampleUsersEndpointHttp.Controllers
             {
                 return new User[]
                 { 
-                    new User { Username = "test1@users.com", Password = "testtest1", Permissions = new string[] { "cat" } }, 
+                    new User { Username = "test1@users.com", Password = "testtest1", Permissions = new string[] { "cat", "hamster" } }, 
                     new User { Username = "test2@users.com", Password = "testtest2", Permissions = new string[] { "cat", "dog" } }, 
                 };
             }

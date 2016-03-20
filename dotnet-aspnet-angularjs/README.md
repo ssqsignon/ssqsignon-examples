@@ -60,15 +60,15 @@ for Single Sign on. Once logged in, users that have the `hamster` scope will be 
 
 6.1 Publish the web server found in the `http-users-endpoint` to your favourite hosting service.
 
-6.2 Go to the *Settings* section of your module in the [SSQ signon module admin](https://ssqsignon.com/moduleadmin) and
+6.2 Go to the *Settings* section of your *Authorization server* in [SSQ signon admin](https://ssqsignon.com/moduleadmin) and
 Scroll down to the *HTTP users endpoint* panel. Check the enabled checkbox, set both the *Authenticate and authorize URI* and
 *Reauthorize URI* to the `/users` path on your deployed server, e.g. `http://path-to-your-deployed-server-js/users`. Leave the
 *Authentication type* as `Basic`, set the *Username* to `example` and the password to `testtest`.
 
-6.3 **Save changes** to your module settings.
+6.3 **Save changes** to your authorization server settings.
 
-6.4 Go to the *Clients* section of your module in the [SSQ signon module admin](https://ssqsignon.com/moduleadmin),
-edit both previously created clients and uncheck the *use dummy user endpoint* checkbox.
+6.4 Go to the *Apps* section of your *Authorization server* in the [SSQ signon admin](https://ssqsignon.com/moduleadmin),
+edit both previously created *Apps* and uncheck the *use dummy user endpoint* checkbox.
 
-6.5 You should now be able to log in to *basic web app* and *SSO slave web app*  using the 2 accounts hardcoded into `server.js`:
+6.5 You should now be able to log in to *basic web app* and *SSO slave web app*  using the 2 accounts hardcoded into `UsersController`:
 `test1@users.com` (password: `testtest1`) and `test2@users.com` (password: `testtest2`).
