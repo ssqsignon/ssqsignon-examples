@@ -52,3 +52,5 @@ nodejs-express-jquery/node_modules/
 dotnet-nancyfx-angularjs/dotnet-nancyfx-angularjs/https-users-endpoint/bin/
 dotnet-nancyfx-angularjs/dotnet-nancyfx-angularjs/slave-app/bin/
 dotnet-nancyfx-angularjs/dotnet-nancyfx-angularjs/slave-app/obj/
+dotnet-aspnet-angularjs/server/SSQSignon.config
+dotnet-aspnet-angularjs/sso-slave-server/SSQSignon.config
