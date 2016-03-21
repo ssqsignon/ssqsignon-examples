@@ -56,3 +56,10 @@ dotnet-aspnet-angularjs/server/SSQSignon.config
 dotnet-aspnet-angularjs/sso-slave-server/SSQSignon.config
 dotnet-katana-angularjs/master-app/SSQSignon.config
 dotnet-katana-angularjs/slave-app/SSQSignon.config
+dotnet-nancyfx-angularjs/packages/
+dotnet-nancyfx-angularjs/slave-app/obj/
+dotnet-nancyfx-angularjs/master-app/obj/
+dotnet-nancyfx-angularjs/https-users-endpoint/obj/
+dotnet-nancyfx-angularjs/master-app/bin/
+dotnet-nancyfx-angularjs/slave-app/bin/
+dotnet-nancyfx-angularjs/https-users-endpoint/bin/

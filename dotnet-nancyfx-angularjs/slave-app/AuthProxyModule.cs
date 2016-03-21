@@ -11,7 +11,7 @@ namespace master_app
     public class AuthModule : SSQSignon.AuthProxyModule
     {
         public AuthModule()
-            :base("auth", ConfigurationManager.AppSettings["SSQSignonModuleName"], ConfigurationManager.AppSettings["SSQSignonClientId"], ConfigurationManager.AppSettings["SSQSignonClientSecret"])
+            :base("auth", ConfigurationManager.AppSettings["SSQSignonServerName"], ConfigurationManager.AppSettings["SSQSignonAppId"], ConfigurationManager.AppSettings["SSQSignonAppSecret"])
         {
         }
     }

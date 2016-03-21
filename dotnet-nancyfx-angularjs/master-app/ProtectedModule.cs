@@ -15,7 +15,7 @@ namespace master_app
     {
         public ProtectedModule()
         {
-            SSQSignonAuthentication.Enable(this, ConfigurationManager.AppSettings["SSQSignonModuleName"], ConfigurationManager.AppSettings["SSQSignonClientId"]);
+            SSQSignonAuthentication.Enable(this, ConfigurationManager.AppSettings["SSQSignonServerName"], ConfigurationManager.AppSettings["SSQSignonAppId"]);
 
             this.RequiresAuthentication();
 
