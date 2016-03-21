@@ -40,7 +40,7 @@ In the command prompt, navigate to the `/nodejs-express-angularjs` directory, an
 leave the *use dummy user endpoint* and *generate refresh tokens* checkboxes checked,
 and add `http://localhost:9902` to the list of *valid redirect URIs*. 
 
-- In the command prompt, navigate to `/nodejs-angularjs/sso-slave-webapp` and run 
+- In the command prompt, navigate to `/nodejs-express-angularjs/sso-slave-webapp` and run 
 
         node server.js [your-authorization-server-name] [your-app-id] [your-app-secret] 
     where `[your-app-id]` and `[your-app-secret]`
