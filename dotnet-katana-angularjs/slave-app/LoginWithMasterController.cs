@@ -16,7 +16,7 @@ namespace slave_app
             {
                 { "redirect_uri", "http://localhost:9902" },
                 { "scope", "hamaster" },
-                { "client_id", ConfigurationManager.AppSettings["SSQSignonClientId"] },
+                { "client_id", ConfigurationManager.AppSettings["SSQSignonAppId"] },
                 { "state", state }
             }.Select(kv => string.Format("{0}={1}", kv.Key, kv.Value)));
 

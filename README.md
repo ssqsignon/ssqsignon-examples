@@ -1,4 +1,4 @@
-# SSQ signon examples 
+# SSQ signon examples
 Example application stacks that use the [SSQ signon](https://www.ssqsignon.com) online authorization server.
 
 ## Example stacks include
