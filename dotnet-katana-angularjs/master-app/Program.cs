@@ -17,7 +17,7 @@ namespace master_app
 
             WebApp.Start(url, appBuilder =>
             {
-                appBuilder.UseSSQSignonAuthentication(ConfigurationManager.AppSettings["SSQSignonModuleName"]);
+                appBuilder.UseSSQSignonAuthentication(ConfigurationManager.AppSettings["SSQSignonServerName"]);
                 appBuilder.UseFileServer(new FileServerOptions { RequestPath = new Microsoft.Owin.PathString(""), FileSystem = new PhysicalFileSystem("./Client") });
                 appBuilder.UseWebApi(Routes());
             });

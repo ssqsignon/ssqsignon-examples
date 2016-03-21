@@ -21,7 +21,7 @@ Open `/dotnet-aspnet-angularjs/aspnet-angularjs.sln` with Visual Studio (2013+).
 
 ## 4. Basic web app
 
-4.1 Rename the `/dotnet-aspnet-angularjs/basic-webapp/SSQSignon.example.config` file to `/aspnet-angularjs/basic-webapp/SSQSignon.config`.
+4.1 Rename the `/dotnet-aspnet-angularjs/basic-webapp/SSQSignon.example.config` file to `/dotnet-aspnet-angularjs/basic-webapp/SSQSignon.config`.
 
 4.2 Open the `/dotnet-aspnet-angularjs/basic-webapp/SSQSignon.config` file and 
 
@@ -43,10 +43,10 @@ and you will see the login dialog.
 leave the *use dummy user endpoint* and *generate refresh tokens* checkboxes checked,
 and add `http://localhost:9902` to the list of *valid redirect URIs*. 
 
-5.3 Rename the `/aspnet-angularjs/sso-slave-webapp/SSQSignon.example.config` file to
-`/aspnet-angularjs/sso-slave-webapp/SSQSignon.config`.
+5.3 Rename the `/dotnet-aspnet-angularjs/sso-slave-webapp/SSQSignon.example.config` file to
+`/dotnet-aspnet-angularjs/sso-slave-webapp/SSQSignon.config`.
 
-5.4 Open the `/aspnet-angularjs/sso-slave-webapp/SSQSignon.config` file and change the
+5.4 Open the `/dotnet-aspnet-angularjs/sso-slave-webapp/SSQSignon.config` file and change the
 `SSQSignonServerName` value to the name of your *Authorization server*.
 Also change the `SSQSignonAppId` and `SSQSignonAppSecret` to the *App id* and *App secret* of your *Slave app*.
 

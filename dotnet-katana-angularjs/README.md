@@ -17,18 +17,18 @@ An initial *Master app* will be registered for you. Please check the App's id in
 `https://github.com/ssqsignon/ssqsignon-examples`
 
 ## 3. Build the solution
-Open `/dotnet-aspnet-angularjs/aspnet-angularjs.sln` with Visual Studio (2013+). The NuGet packages should be downloaded automatically.
+Open `/dotnet-katana-angularjs/aspnet-angularjs.sln` with Visual Studio (2013+). The NuGet packages should be downloaded automatically.
 
 ## 4. Basic web app
 
-4.1 Rename the `/dotnet-aspnet-angularjs/basic-webapp/SSQSignon.example.config` file to `/aspnet-angularjs/basic-webapp/SSQSignon.config`.
+4.1 Rename the `/dotnet-katana-angularjs/master-app/SSQSignon.example.config` file to `/dotnet-katana-angularjs/master-app/SSQSignon.config`.
 
-4.2 Open the `/dotnet-aspnet-angularjs/basic-webapp/SSQSignon.config` file and 
+4.2 Open the `/dotnet-katana-angularjs/master-app/SSQSignon.config` file and 
 
 - change the `SSQSignonServerName` value to the name of your *Authorization server*.
 - change the `SSQSignonAppId` value to the id of your registered *Master app*.
 
-4.3 Run the `basic-webapp` project. If all goes well your browser will be directed to `http://localhost:9901`
+4.3 Run the `master-app` project. If all goes well your browser will be directed to `http://localhost:9901`
 and you will see the login dialog.
 
 4.4 You may now login with the dummy user accounts you've created in step 1.
@@ -43,14 +43,14 @@ and you will see the login dialog.
 leave the *use dummy user endpoint* and *generate refresh tokens* checkboxes checked,
 and add `http://localhost:9902` to the list of *valid redirect URIs*. 
 
-5.3 Rename the `/aspnet-angularjs/sso-slave-webapp/SSQSignon.example.config` file to
-`/aspnet-angularjs/sso-slave-webapp/SSQSignon.config`.
+5.3 Rename the `/dotnet-katana-angularjs/slave-app/SSQSignon.example.config` file to
+`/dotnet-katana-angularjs/sso-slave-webapp/SSQSignon.config`.
 
-5.4 Open the `/aspnet-angularjs/sso-slave-webapp/SSQSignon.config` file and change the
+5.4 Open the `/dotnet-katana-angularjs/slave-app/SSQSignon.config` file and change the
 `SSQSignonServerName` value to the name of your *Authorization server*.
 Also change the `SSQSignonAppId` and `SSQSignonAppSecret` to the *App id* and *App secret* of your *Slave app*.
 
-5.5 Run the `sso-slave-webapp` project. If all goes well your browser will be directed to
+5.5 Run the `slave-app` project. If all goes well your browser will be directed to
 `http://localhost:9902` and you will see the app page.
 
 5.6 Clicking the *login with SSQ singon example app* button will redirect you to *basic web app*
