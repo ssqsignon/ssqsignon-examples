@@ -1,32 +1,28 @@
 # Node.js - Express.js - Angular.js setup
 
-## 1. Register with *SSQ singon* and create a *module*.
+## 1. Register with *SSQ singon* and create an *Authorization server*.
  
-1.1 - In *step 1* of the module creation wizard, add `http://localhost:9901` and `http://localhost:9902` to the list of *Allowed origins*.
-
-1.2 - In *step 2* of the module creation wizard, select the `dummy endpoint` and some dummy user accounts.
-At least some of the accounts should contain the scopes `cat`, `dog` and `hamster`, which will be used in the example.
+Remember to add some dummy user accounts. Some of the accounts should contain the scopes
+`cat`, `dog` and `hamster`, which will be used in the example.
 For example, the following dummy user accounts may be created:
 
 - username: `test`, password: `testtest`, scope: `cat`
 - username: `test2`, password: `testtest2`, scope: `cat dog hamster`
 - username: `test3`, password: `testtest3`, scope: `dog hamster`
 
-1.3 - In *step 3* of the module creation wizard, select the `password` authorization type for your first client, and check
-the `use dummy user endpoint` and `generate refresh tokens` checkboxes. 
+An initial *Master app* will be registered for you. Please check the App's id in the *Apps* section of the admin panel.
 
 ## 2. Checkout the repository.
 
 ## 3. Npm install
-In the command prompt, navigate to the `/nodejs-angularjs` directory, and run `npm install`.
+In the command prompt, navigate to the `/nodejs-express-angularjs` directory, and run `npm install`.
 
 ## 4. Basic web app
 
-- In the command prompt, navigate to `/nodejs-angularjs/basic-webapp` and run 
+- In the command prompt, navigate to `/nodejs-express-angularjs/basic-webapp` and run 
 
-        node server.js [your-module-name] [your-client-id]
-    where `[your-module-name]` is the name of the module you've created in step 1, and `[your-client-id]` is the Id of the client 
-    you've registered in step 1 (you may check this value in your module's *clients* section).
+        node server.js [your-authorization-server-name] [your-app-id]
+    where `[your-app-id]` is the Id of the *Master app*.
     If all goes well you should see the `web app listening on port 9901` message.
 
 - Open your web browser and navigate to
@@ -40,15 +36,15 @@ In the command prompt, navigate to the `/nodejs-angularjs` directory, and run `n
 
 - The *basic web app* that you set up in step 4 should already be up and running. 
 
-- In the [SSQ signon module admin](https://ssqsignon.com/moduleadmin), register a new client with the *authorization
- type* set to `Authorization code`, the *use dummy user endpoint* and *generate refresh tokens* checkboxes checked,
- and `http://localhost:9902` added to the list of *valid redirect URIs*. 
+- In the [SSQ signon module admin](https://ssqsignon.com/moduleadmin), register a new *Slave app*,
+leave the *use dummy user endpoint* and *generate refresh tokens* checkboxes checked,
+and add `http://localhost:9902` to the list of *valid redirect URIs*. 
 
 - In the command prompt, navigate to `/nodejs-angularjs/sso-slave-webapp` and run 
 
-        node server.js [your-module-name] [your-client-id] [your-client-secret] 
-    where `[your-module-name]` is the name of the module you've created in step 1, and `[you-client-id]` and `[your-client-secret]`
-    are the *client id* and *client secret* of client you've registered in step 5.2.
+        node server.js [your-authorization-server-name] [your-app-id] [your-app-secret] 
+    where `[your-app-id]` and `[your-app-secret]`
+    are the *App id* and *App secret* of your *Slave app*.
     If all goes well you should see the `web app listening on port 9902` message.
 
 - Open your web browser and navigate to 
@@ -59,7 +55,7 @@ In the command prompt, navigate to the `/nodejs-angularjs` directory, and run `n
   
 ## 6. The http users endpoint
 
-6.1 Deploy the node.js server found in `/nodejs-angularjs/http-users-endpoint/server.js` on your favourite hosting service. You may want to edit to `port`
+6.1 Deploy the node.js server found in `/nodejs-express-angularjs/http-users-endpoint/server.js` on your favourite hosting service. You may want to edit to `port`
     variable to 80.
 
 6.2 Go to the *Settings* section of your module in the [SSQ signon module admin](https://ssqsignon.com/moduleadmin) and
