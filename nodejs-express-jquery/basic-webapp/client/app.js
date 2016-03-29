@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
-    var authenticator = $.authenticator($.appConfig.moduleName, $.appConfig.clientId)
+    var authenticator = $.authenticator.proxy('/auth')
             .autoAppendAccessToken()
             .autoRefreshAccessToken(),
         loginPromise = null,

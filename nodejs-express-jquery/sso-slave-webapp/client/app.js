@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
-    var authenticator = $.authenticator($.appConfig.moduleName, $.appConfig.clientId, '/auth')
+    var authenticator = $.authenticator.proxy('/auth')
             .autoAppendAccessToken()
             .autoRefreshAccessToken(),
         user = null;
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
     function setupUI() {
         $('#login-button').click(function() {
-            authenticator.ssoSlave.loginWithMaster('http://localhost:9901', 'hamster', 'xyz', 'http://localhost:9902');
+            window.location.assign('/loginwithmaster?state=somevalue');
         });
 
         $('#logout-button').click(function() {
